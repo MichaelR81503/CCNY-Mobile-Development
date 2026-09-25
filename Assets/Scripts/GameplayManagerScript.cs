@@ -100,6 +100,7 @@ public class GameplayManagerScript : MonoBehaviour
         }
     }
 
+
     void UpdateScore()
     {
         scoreText.text = score.ToString();
