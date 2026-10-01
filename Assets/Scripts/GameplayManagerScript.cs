@@ -5,6 +5,10 @@ using Unity.VisualScripting;
 
 public class GameplayManagerScript : MonoBehaviour
 {
+
+    Health damage;
+    public GameObject hitPoints;
+
     public enum MoveType
     {
         MoveDistance,
@@ -98,6 +102,8 @@ public class GameplayManagerScript : MonoBehaviour
         {
             Debug.Log("GAME OVER");
         }
+
+
     }
 
 
