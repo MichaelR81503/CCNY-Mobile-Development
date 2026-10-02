@@ -101,6 +101,7 @@ public class GameplayManagerScript : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Debug.Log("GAME OVER");
+
         }
 
 

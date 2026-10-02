@@ -3,12 +3,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     Health damage;
-    [SerializeField] Transform targetDestination;
     [SerializeField] float speed;
+    [SerializeField] private GameObject prefab;
     public GameObject hitPoints;
 
     Rigidbody rgdbd;
 
+   
     void Start()
     {
         damage = hitPoints.GetComponent<Health>();
@@ -16,7 +17,9 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         rgdbd = GetComponent<Rigidbody>();
-       
+        //find targetDestination gameboject by name "PLayer"
+        targetDestination = GameObject.Find("Player").GetComponent<Transform>();
+
     }
 
     private void FixedUpdate()
