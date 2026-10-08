@@ -105,7 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e71d935ab6e5e74ead88a489325ba16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  targetDestination: {fileID: 0}
   speed: 2
   prefab: {fileID: 6195779183745020089}
   hitPoints: {fileID: 0}

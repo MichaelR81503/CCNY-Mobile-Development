@@ -7,7 +7,7 @@ public class GameplayManagerScript : MonoBehaviour
 {
 
     Health damage;
-    public GameObject hitPoints;
+    [SerializeField] private GameObject hitPoints;
 
     public enum MoveType
     {

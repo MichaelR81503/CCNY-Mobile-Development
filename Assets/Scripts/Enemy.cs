@@ -5,20 +5,23 @@ public class Enemy : MonoBehaviour
     Health damage;
     [SerializeField] float speed;
     [SerializeField] private GameObject prefab;
-    public GameObject hitPoints;
+    [SerializeField] int experience_reward = 400;
+    private GameObject hitPoints;
 
     Rigidbody rgdbd;
+    private Transform targetDestination;
 
-   
     void Start()
     {
         damage = hitPoints.GetComponent<Health>();
+
     }
     private void Awake()
     {
         rgdbd = GetComponent<Rigidbody>();
         //find targetDestination gameboject by name "PLayer"
         targetDestination = GameObject.Find("Player").GetComponent<Transform>();
+        hitPoints = GameObject.FindGameObjectWithTag("Player");
 
     }
 
@@ -33,6 +36,11 @@ public class Enemy : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             damage.TakeDamage(1);
+        }
+        if (other.CompareTag("Bullet"))
+        {
+            Destroy(gameObject);
+            targetDestination.GetComponent<Level>().AddExperience(experience_reward);
         }
     }
 
