@@ -8,6 +8,9 @@ public class GameplayManagerScript : MonoBehaviour
 
     Health damage;
     [SerializeField] private GameObject hitPoints;
+    Vector3 movementVector;
+    public float lastHorizontalVector;
+    public float lastVerticalVector;
 
     public enum MoveType
     {
@@ -58,6 +61,8 @@ public class GameplayManagerScript : MonoBehaviour
                 Move();
             }
         }
+
+
     }
 
     void Move()
@@ -87,6 +92,17 @@ public class GameplayManagerScript : MonoBehaviour
             Vector3 newPosition = hit.point;
             newPosition.z = transform.position.z;
             transform.DOMove(newPosition, moveTime).SetEase(Ease.InOutQuad);
+            movementVector.x = Input.GetAxis("Horizontal");
+            movementVector.y = Input.GetAxis("Vertical");
+
+            if (movementVector.x != 0)
+            {
+                lastHorizontalVector = movementVector.x;
+            }
+            if (movementVector.y != 0)
+            {
+                lastVerticalVector = movementVector.y;
+            }
         }
     }
 
