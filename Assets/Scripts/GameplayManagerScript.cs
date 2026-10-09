@@ -1,16 +1,23 @@
-using UnityEngine;
-using TMPro;
 using DG.Tweening;
+using TMPro;
 using Unity.VisualScripting;
+using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class GameplayManagerScript : MonoBehaviour
 {
 
     Health damage;
     [SerializeField] private GameObject hitPoints;
+    [SerializeField] private Transform targetObject;
+    [SerializeField] private Camera mainCam;
     Vector3 movementVector;
     public float lastHorizontalVector;
     public float lastVerticalVector;
+
+    public Transform target;
+
+    private bool isHolding = false;
 
     public enum MoveType
     {
@@ -38,6 +45,8 @@ public class GameplayManagerScript : MonoBehaviour
     void Start()
     {
         UpdateScore();
+        if (mainCam == null)
+            mainCam = Camera.main;
 
     }
 
@@ -50,16 +59,23 @@ public class GameplayManagerScript : MonoBehaviour
             Move();
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
+            isHolding = true;
+
             if (moveType == MoveType.MoveToClick)
             {
                 MoveToClickedPosition(Input.mousePosition);
+                
             }
             else
             {
                 Move();
             }
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            isHolding = false;
         }
 
 
@@ -91,18 +107,11 @@ public class GameplayManagerScript : MonoBehaviour
         {
             Vector3 newPosition = hit.point;
             newPosition.z = transform.position.z;
-            transform.DOMove(newPosition, moveTime).SetEase(Ease.InOutQuad);
-            movementVector.x = Input.GetAxis("Horizontal");
-            movementVector.y = Input.GetAxis("Vertical");
+            transform.DOMove(newPosition, moveTime).SetEase(Ease.Linear);
+            transform.LookAt(target);
+            transform.LookAt(target, Vector3.left);
+            //look at mouse 
 
-            if (movementVector.x != 0)
-            {
-                lastHorizontalVector = movementVector.x;
-            }
-            if (movementVector.y != 0)
-            {
-                lastVerticalVector = movementVector.y;
-            }
         }
     }
 

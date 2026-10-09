@@ -1599,10 +1599,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameplayManagerScript
   hitPoints: {fileID: 1134551947}
+  targetObject: {fileID: 1134551952}
+  mainCam: {fileID: 2075061762}
+  lastHorizontalVector: 0
+  lastVerticalVector: 0
+  target: {fileID: 1134551952}
   moveType: 2
-  moveDistance: 2
-  moveTime: 0.5
-  targetPosition: {fileID: 607177795}
+  moveDistance: 0.1
+  moveTime: 1
+  targetPosition: {fileID: 1134551952}
   mainCamera: {fileID: 2075061762}
   scoreText: {fileID: 904256205}
   score: 0
@@ -1627,8 +1632,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2075061763}
   - {fileID: 302636209}
+  - {fileID: 2075061763}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!54 &1134551953
@@ -1656,7 +1661,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &1134551954
 MonoBehaviour:
@@ -1672,6 +1677,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Shooting
   firePoint: {fileID: 302636209}
   bulletPrefab: {fileID: 4400503584829106599, guid: 8620ed28ebe5f784ab052003437403d5, type: 3}
+  speed: 0
+  lastHorizontalVector: 0
+  lastVerticalVector: 0
   bulletForce: 20
 --- !u!114 &1134551955
 MonoBehaviour:
