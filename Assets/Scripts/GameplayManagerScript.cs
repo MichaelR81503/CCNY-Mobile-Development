@@ -66,7 +66,7 @@ public class GameplayManagerScript : MonoBehaviour
             if (moveType == MoveType.MoveToClick)
             {
                 MoveToClickedPosition(Input.mousePosition);
-                
+
             }
             else
             {
@@ -108,8 +108,7 @@ public class GameplayManagerScript : MonoBehaviour
             Vector3 newPosition = hit.point;
             newPosition.z = transform.position.z;
             transform.DOMove(newPosition, moveTime).SetEase(Ease.Linear);
-            transform.LookAt(target);
-            transform.LookAt(target, Vector3.left);
+            transform.LookAt(hit.point);
             //look at mouse 
 
         }

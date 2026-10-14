@@ -8,8 +8,6 @@ public class Shooting : MonoBehaviour
     Vector3 direction;
     [SerializeField] float speed;
     Vector3 movementVector;
-    public float lastHorizontalVector;
-    public float lastVerticalVector;
 
     public float bulletForce = 20f;
     GameplayManagerScript gameplayManagerScript;
@@ -28,7 +26,7 @@ public class Shooting : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButton("Fire1"))
         {
             Shoot();
         }
@@ -43,7 +41,6 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode.Impulse);
-        bullet.GetComponent<Bullet>().SetDirection(gameplayManagerScript.lastHorizontalVector, 0f);
     }
 
 }

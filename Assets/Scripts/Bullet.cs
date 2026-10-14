@@ -28,14 +28,5 @@ public class Bullet : MonoBehaviour
         transform.position += direction * speed * Time.deltaTime;
         movementVector.x = Input.GetAxis("Horizontal");
         movementVector.y = Input.GetAxis("Vertical");
-
-        if (movementVector.x != 0)
-        {
-            lastHorizontalVector = movementVector.x;
-        }
-        if (movementVector.y != 0)
-        {
-            lastVerticalVector = movementVector.y;
-        }
     }
 }
