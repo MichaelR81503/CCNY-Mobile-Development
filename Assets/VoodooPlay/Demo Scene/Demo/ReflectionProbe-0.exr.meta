@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: f61ae5f592d1c9f419e28349b6b6234e
+AssetOrigin:
+  serializedVersion: 1
+  productId: 82234
+  packageName: Low poly combat drone
+  packageVersion: 1.0
+  assetPath: Assets/VoodooPlay/Demo Scene/Demo/ReflectionProbe-0.exr
+  uploadId: 749199
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -128,10 +135,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 82234
-  packageName: Low poly combat drone
-  packageVersion: 1.0
-  assetPath: Assets/VoodooPlay/Demo Scene/Demo/ReflectionProbe-0.exr
-  uploadId: 749199
