@@ -8,9 +8,15 @@ public class Shooting : MonoBehaviour
     Vector3 direction;
     [SerializeField] float speed;
     Vector3 movementVector;
+    public AudioSource src;
+    public AudioClip shootSound;
 
-    public float bulletForce = 20f;
+    public float bulletForce = 10f;
     GameplayManagerScript gameplayManagerScript;
+
+    public float fireRate = 10f;
+
+    private float nextFireTime = 0f;
 
     public void SetDirection(float dir_x, float dir_y)
     {
@@ -26,9 +32,12 @@ public class Shooting : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetButton("Fire1"))
+        if(Input.GetButton("Fire1") && Time.time >= nextFireTime)
         {
             Shoot();
+            nextFireTime = Time.time + fireRate;
+            src.clip = shootSound;
+            src.Play();
         }
 
 

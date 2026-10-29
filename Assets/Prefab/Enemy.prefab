@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   speed: 2
   prefab: {fileID: 6195779183745020089}
-  hitPoints: {fileID: 0}
+  experience_reward: 400
 --- !u!65 &7829812698428093548
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -154,5 +154,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
