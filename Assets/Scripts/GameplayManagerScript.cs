@@ -109,6 +109,10 @@ public class GameplayManagerScript : MonoBehaviour
             newPosition.z = transform.position.z;
             transform.DOMove(newPosition, moveTime).SetEase(Ease.Linear);
             transform.LookAt(hit.point);
+            // Set only the Y rotation to 45 degrees
+            transform.eulerAngles = new Vector3(-90f, transform.eulerAngles.y,  -1*transform.eulerAngles.z);
+
+
             //look at mouse 
 
         }

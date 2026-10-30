@@ -18,6 +18,7 @@ public class Shooting : MonoBehaviour
 
     private float nextFireTime = 0f;
 
+
     public void SetDirection(float dir_x, float dir_y)
     {
         direction = new Vector3(dir_x, dir_y);
@@ -50,6 +51,8 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode.Impulse);
+
+
     }
 
 }
