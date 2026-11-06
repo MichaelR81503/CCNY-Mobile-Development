@@ -14,7 +14,6 @@ public class AdsManagerScript : MonoBehaviour
         LevelPlay.OnInitFailed += OnInitFailed;
 
         LevelPlay.Init(appKey);
-        
     }
 
     private void OnDestroy()

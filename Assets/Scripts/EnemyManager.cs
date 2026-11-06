@@ -6,6 +6,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Vector2 spawnArea;
     [SerializeField] float spawnTimer;
     float timer;
+    public BoxCollider2D grid;
 
     private void Update()
     {

@@ -15,6 +15,7 @@ public class GameplayManagerScript : MonoBehaviour
     public float lastHorizontalVector;
     public float lastVerticalVector;
 
+
     public Transform target;
 
     private bool isHolding = false;
@@ -106,11 +107,12 @@ public class GameplayManagerScript : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             Vector3 newPosition = hit.point;
+            Vector3 currentAngles = transform.localEulerAngles;
             newPosition.z = transform.position.z;
             transform.DOMove(newPosition, moveTime).SetEase(Ease.Linear);
             transform.LookAt(hit.point);
             // Set only the Y rotation to 45 degrees
-            transform.eulerAngles = new Vector3(-90f, transform.eulerAngles.y,  -1*transform.eulerAngles.z);
+            transform.localEulerAngles = new Vector3(-90f, currentAngles.y, 0f);
 
 
             //look at mouse 
